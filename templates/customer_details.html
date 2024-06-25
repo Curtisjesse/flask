@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Details{% endblock %}
+
+{% block content %}
+    <h1>Customer Details: {{ customer.name }}</h1>
+    <p>Code: {{ customer.code }}</p>
+    <h2>Orders:</h2>
+    <ul>
+    {% for order in customer.orders %}
+        <li>Product: {{ order.product.name }}, Quantity: {{ order.quantity }}, Time: {{ order.time }}</li>
+    {% endfor %}
+    </ul>
+    <a href="{{ url_for('place_order', customer_id=customer.id) }}">Place New Order</a>
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}

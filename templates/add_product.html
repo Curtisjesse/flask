@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Add Product{% endblock %}
+{% block content %}
+<h1>Add Product</h1>
+<form method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" step="0.01" required>
+    <br>
+    <input type="submit" value="Add Product">
+</form>
+<a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}

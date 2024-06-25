@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Customer Order System{% endblock %}
+{% block content %}
+<h2>Customers and Orders:</h2>
+<ul>
+    {% for customer in customers %}
+    <li>
+        <a href="{{ url_for('place_order', customer_id=customer.id) }}">{{ customer.name }}</a>
+        <ul>
+            {% for order in customer.orders %}
+            <li>{{ order.item }} - Amount: {{ order.quantity }}, Price: Ksh{{ order.price }}, Total: Ksh{{ order.price * order.quantity }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
